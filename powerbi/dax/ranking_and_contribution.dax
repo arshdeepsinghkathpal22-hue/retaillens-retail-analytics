@@ -1,0 +1,28 @@
+Product Net Sales Rank =
+RANKX (
+    ALLSELECTED ( DimProduct[product_id] ),
+    [Net Line Sales GBP],,
+    DESC,
+    DENSE
+)
+
+Product Share of Selected Net Sales % =
+DIVIDE (
+    [Net Line Sales GBP],
+    CALCULATE ( [Net Line Sales GBP], ALLSELECTED ( DimProduct[product_id] ) )
+)
+
+Known Customer Net Sales Rank =
+RANKX (
+    ALLSELECTED ( DimCustomer[customer_id] ),
+    [Net Line Sales GBP],,
+    DESC,
+    DENSE
+)
+
+-- A top-10 share under active filters; customers lacking IDs are outside scope.
+Top 10 Known Buyers Sales GBP =
+SUMX (
+    TOPN ( 10, ALLSELECTED ( DimCustomer[customer_id] ), [Net Line Sales GBP], DESC ),
+    [Net Line Sales GBP]
+)

@@ -1,0 +1,48 @@
+{
+  "suspected_high_quantity_outliers": 0,
+  "suspected_high_unit_price_outliers": 157,
+  "row_count": 7725,
+  "column_count": 7725,
+  "columns": {
+    "InvoiceNo": "string",
+    "StockCode": "string",
+    "Description": "object",
+    "Quantity": "float64",
+    "InvoiceDate": "object",
+    "UnitPrice": "object",
+    "CustomerID": "string",
+    "Country": "object"
+  },
+  "missing": {
+    "InvoiceNo": 1,
+    "StockCode": 1,
+    "Description": 0,
+    "Quantity": 0,
+    "InvoiceDate": 0,
+    "UnitPrice": 0,
+    "CustomerID": 262,
+    "Country": 0
+  },
+  "missing_percent": {
+    "InvoiceNo": 0.01,
+    "StockCode": 0.01,
+    "Description": 0.0,
+    "Quantity": 0.0,
+    "InvoiceDate": 0.0,
+    "UnitPrice": 0.0,
+    "CustomerID": 3.39,
+    "Country": 0.0
+  },
+  "exact_duplicate_rows": 1,
+  "duplicate_invoice_numbers": 4448,
+  "min_invoice_date": "2024-01-01 09:20:00",
+  "max_invoice_date": "2025-09-30 20:17:00",
+  "negative_quantity_rows": 220,
+  "zero_quantity_rows": 1,
+  "negative_price_rows": 1,
+  "zero_price_rows": 1,
+  "unique_invoices": 3276,
+  "unique_products": 36,
+  "unique_customers": 320,
+  "unique_countries": 8
+}

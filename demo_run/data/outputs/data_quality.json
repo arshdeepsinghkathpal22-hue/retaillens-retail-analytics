@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "all_rows_accounted_for": true,
+    "line_ids_unique": true,
+    "no_nonpositive_prices": true,
+    "no_zero_quantities": true,
+    "no_missing_invoices": true,
+    "no_missing_products": true,
+    "no_missing_dates": true,
+    "net_sales_reconcile": true
+  },
+  "passed": true,
+  "original_rows": 7725,
+  "accepted_rows": 7716,
+  "rejected_rows": 9
+}

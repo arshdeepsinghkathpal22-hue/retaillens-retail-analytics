@@ -1,0 +1,6 @@
+segment,customers,known_customer_net_sales_gbp,mean_purchase_frequency,mean_recency_days
+Loyal Customers,100,134747.16,10.94,64.41
+Champions,85,134427.93,12.11,12.55
+Potential Loyalists,83,71711.47,7.39,25.72
+Hibernating,38,11066.36,2.32,315.45
+At Risk,14,14043.22,7.57,126.57

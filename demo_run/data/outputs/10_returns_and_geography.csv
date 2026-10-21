@@ -1,0 +1,9 @@
+country,sales_invoices,credit_invoices,gross_sales_gbp,returns_gbp,net_sales_gbp,return_to_gross_pct
+United Kingdom,1910,136,240374.93,3386.04,236988.89,1.41
+France,269,15,35953.43,388.14,35565.29,1.08
+Germany,294,19,35175.5,435.73,34739.77,1.24
+Ireland,234,15,29053.09,461.05,28592.04,1.59
+Spain,160,16,19676.38,410.15,19266.23,2.08
+Australia,71,5,9138.28,106.17,9032.11,1.16
+Netherlands,72,6,8453.27,198.09,8255.18,2.34
+Belgium,45,8,6921.38,233.99,6687.39,3.38

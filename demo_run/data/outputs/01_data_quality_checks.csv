@@ -1,0 +1,11 @@
+check_name,issue_count
+duplicate_line_ids,0
+missing_invoice,0
+missing_date,0
+missing_product,0
+nonpositive_price,0
+orphan_products,0
+orphan_geographies,0
+orphan_named_customers,0
+source_lookalikes_retained,1
+negative_quantities_with_no_C,0

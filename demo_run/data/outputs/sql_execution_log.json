@@ -1,0 +1,129 @@
+{
+  "01_data_quality_checks.sql": {
+    "status": "passed",
+    "rows": 10,
+    "columns": [
+      "check_name",
+      "issue_count"
+    ]
+  },
+  "02_revenue_analysis.sql": {
+    "status": "passed",
+    "rows": 21,
+    "columns": [
+      "month_key",
+      "gross_sales_gbp",
+      "returns_gbp",
+      "net_sales_gbp",
+      "orders",
+      "active_known_customers",
+      "gross_aov_gbp",
+      "mom_net_change_pct"
+    ]
+  },
+  "03_product_analysis.sql": {
+    "status": "passed",
+    "rows": 36,
+    "columns": [
+      "product_id",
+      "product_description",
+      "gross_sales_gbp",
+      "returned_gbp",
+      "net_sales_gbp",
+      "units_sold",
+      "revenue_rank",
+      "unit_rank",
+      "contribution_pct"
+    ]
+  },
+  "04_customer_segmentation.sql": {
+    "status": "passed",
+    "rows": 5,
+    "columns": [
+      "segment",
+      "customers",
+      "known_customer_net_sales_gbp",
+      "mean_purchase_frequency",
+      "mean_recency_days"
+    ]
+  },
+  "05_cohort_retention.sql": {
+    "status": "passed",
+    "rows": 204,
+    "columns": [
+      "observed_month",
+      "cohort_month",
+      "months_since_acquisition",
+      "active_customers",
+      "cohort_size",
+      "retention_percent"
+    ]
+  },
+  "06_rfm_analysis.sql": {
+    "status": "passed",
+    "rows": 320,
+    "columns": [
+      "customer_id",
+      "recency_days",
+      "frequency_orders",
+      "monetary_net_gbp",
+      "r_score",
+      "f_score",
+      "m_score",
+      "segment"
+    ]
+  },
+  "07_advanced_window_functions.sql": {
+    "status": "passed",
+    "rows": 739,
+    "columns": [
+      "month_key",
+      "product_id",
+      "net_sales_gbp",
+      "row_number",
+      "sales_rank",
+      "preceding_active_month_sales",
+      "following_active_month_sales",
+      "running_product_sales",
+      "three_active_month_avg"
+    ]
+  },
+  "08_executive_summary.sql": {
+    "status": "passed",
+    "rows": 1,
+    "columns": [
+      "net_sales_gbp",
+      "gross_sales_gbp",
+      "returns_gbp",
+      "orders",
+      "known_buying_customers",
+      "units_sold",
+      "units_returned",
+      "gross_aov_gbp"
+    ]
+  },
+  "09_customer_concentration.sql": {
+    "status": "passed",
+    "rows": 320,
+    "columns": [
+      "customer_id",
+      "net_spend_gbp",
+      "customer_rank",
+      "known_revenue_share_pct"
+    ]
+  },
+  "10_returns_and_geography.sql": {
+    "status": "passed",
+    "rows": 8,
+    "columns": [
+      "country",
+      "sales_invoices",
+      "credit_invoices",
+      "gross_sales_gbp",
+      "returns_gbp",
+      "net_sales_gbp",
+      "return_to_gross_pct"
+    ]
+  },
+  "blocking_warehouse_issues": 0
+}

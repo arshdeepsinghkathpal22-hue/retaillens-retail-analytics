@@ -1,0 +1,24 @@
+{
+  "dataset": "SYNTHETIC showcase data",
+  "input_file": "data/samples/synthetic_showcase.csv",
+  "sha256": "fdb10e5332abfc2b4a3d50a4e2ca925d776dcc1a7654c5185db59650165fa6fd",
+  "source_attribution": "SYNTHETIC generated fixture; no real-world source",
+  "rows_raw": 7725,
+  "rows_accepted": 7716,
+  "rows_rejected": 9,
+  "sql_queries_passed": 10,
+  "metric_reconciliation": {
+    "gross_python_vs_sql": true,
+    "returns_python_vs_sql": true,
+    "net_python_vs_sql": true,
+    "order_count_python_vs_sql": true,
+    "rfm_customer_counts_match": true,
+    "cohort_rows_match": true,
+    "rfm_scores_and_segments_agree": true,
+    "cohort_counts_and_rates_agree": true
+  },
+  "last_complete_cohort_month": "2025-08",
+  "snapshot_date": "2025-10-01",
+  "warehouse": "demo_run/data/processed/retail.sqlite",
+  "note": "No .pbix file or Power BI visual has been built or tested in this environment."
+}

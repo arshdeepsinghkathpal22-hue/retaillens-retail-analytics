@@ -1,0 +1,46 @@
+-- Measures (not calculated columns). Import and rename tables as shown in powerbi/README.md.
+-- Date and first_purchase_date must be typed Date in Power Query.
+
+Gross Line Sales GBP =
+SUM ( FactSales[gross_sales] )
+
+Returned Line Amount GBP =
+SUM ( FactSales[return_amount] )
+
+Net Line Sales GBP =
+SUM ( FactSales[net_sales] )
+
+Sale Invoices =
+CALCULATE (
+    DISTINCTCOUNT ( FactSales[invoice_no] ),
+    FactSales[event_type] = "sale"
+)
+
+Known Purchasing Customers =
+CALCULATE (
+    DISTINCTCOUNT ( FactSales[customer_id] ),
+    FactSales[event_type] = "sale",
+    NOT ISBLANK ( FactSales[customer_id] )
+)
+
+Units Sold =
+SUM ( FactSales[units_sold] )
+
+Units Returned =
+SUM ( FactSales[units_returned] )
+
+Gross Average Order Value GBP =
+DIVIDE ( [Gross Line Sales GBP], [Sale Invoices] )
+
+Net Revenue Per Sale Invoice GBP =
+DIVIDE ( [Net Line Sales GBP], [Sale Invoices] )
+
+Average Net Sales Per Known Buyer GBP =
+DIVIDE (
+    CALCULATE ( [Net Line Sales GBP], NOT ISBLANK ( FactSales[customer_id] ) ),
+    [Known Purchasing Customers]
+)
+
+-- Return share of gross priced lines, not a refund success or return-order rate.
+Return to Gross Sales % =
+DIVIDE ( [Returned Line Amount GBP], [Gross Line Sales GBP] )

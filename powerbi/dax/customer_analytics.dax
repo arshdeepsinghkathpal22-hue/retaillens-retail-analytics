@@ -1,0 +1,51 @@
+-- Period-level repeats: at least two distinct positive-sale invoices in the selected filters.
+Period Repeat Buyers =
+COUNTROWS (
+    FILTER (
+        VALUES ( DimCustomer[customer_id] ),
+        CALCULATE ( [Sale Invoices] ) >= 2
+    )
+)
+
+Period Repeat Buyer Rate % =
+DIVIDE ( [Period Repeat Buyers], [Known Purchasing Customers] )
+
+-- A returning buyer purchased before the FIRST selected date and within the period.
+-- For non-contiguous date selections, interpret with care.
+Returning Buyers =
+VAR periodStart = MIN ( DimDate[date_key] )
+RETURN CALCULATE (
+    [Known Purchasing Customers],
+    KEEPFILTERS ( DimCustomer[first_purchase_date] < periodStart )
+)
+
+New Buyers =
+VAR periodStart = MIN ( DimDate[date_key] )
+VAR periodEnd = MAX ( DimDate[date_key] )
+RETURN CALCULATE (
+    [Known Purchasing Customers],
+    KEEPFILTERS ( DimCustomer[first_purchase_date] >= periodStart ),
+    KEEPFILTERS ( DimCustomer[first_purchase_date] <= periodEnd )
+)
+
+-- CustomerRFM is a fixed snapshot at the dataset's last observed transaction date.
+Snapshot Segment Customers =
+DISTINCTCOUNT ( CustomerRFM[customer_id] )
+
+-- RFM is intentionally a detached snapshot table; TREATAS applies segment filters.
+Snapshot Segment Net Sales GBP =
+CALCULATE (
+    [Net Line Sales GBP],
+    TREATAS ( VALUES ( CustomerRFM[customer_id] ), DimCustomer[customer_id] )
+)
+
+-- Use this in a heatmap with exactly one cohort and one month-age per cell.
+Cohort Retention % =
+IF (
+    HASONEVALUE ( CohortRetention[months_since_acquisition] ),
+    DIVIDE (
+        SUM ( CohortRetention[active_customers] ),
+        SUM ( CohortRetention[cohort_size] )
+    ),
+    BLANK ()
+)

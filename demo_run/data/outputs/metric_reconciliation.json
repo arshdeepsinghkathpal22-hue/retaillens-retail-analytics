@@ -1,0 +1,10 @@
+{
+  "gross_python_vs_sql": true,
+  "returns_python_vs_sql": true,
+  "net_python_vs_sql": true,
+  "order_count_python_vs_sql": true,
+  "rfm_customer_counts_match": true,
+  "cohort_rows_match": true,
+  "rfm_scores_and_segments_agree": true,
+  "cohort_counts_and_rates_agree": true
+}

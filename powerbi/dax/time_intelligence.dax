@@ -1,0 +1,37 @@
+-- The DimDate[date_key] column must be Date typed and the calendar marked as date table.
+-- The data stops in December 2011: incomplete periods should be filtered out.
+
+Previous Month Net Sales GBP =
+CALCULATE ( [Net Line Sales GBP], DATEADD ( DimDate[date_key], -1, MONTH ) )
+
+MoM Net Sales Change % =
+VAR previous = [Previous Month Net Sales GBP]
+RETURN IF (
+    ISBLANK ( previous ) || previous = 0,
+    BLANK (),
+    DIVIDE ( [Net Line Sales GBP] - previous, ABS ( previous ) )
+)
+
+Prior Year Net Sales GBP =
+CALCULATE ( [Net Line Sales GBP], SAMEPERIODLASTYEAR ( DimDate[date_key] ) )
+
+YoY Net Sales Change % =
+VAR prior = [Prior Year Net Sales GBP]
+RETURN IF (
+    ISBLANK ( prior ) || prior = 0,
+    BLANK (),
+    DIVIDE ( [Net Line Sales GBP] - prior, ABS ( prior ) )
+)
+
+Running Net Sales GBP =
+VAR cutoff = MAX ( DimDate[date_key] )
+RETURN CALCULATE (
+    [Net Line Sales GBP],
+    FILTER ( ALLSELECTED ( DimDate[date_key] ), DimDate[date_key] <= cutoff )
+)
+
+Rolling 3-Month Net Sales GBP =
+CALCULATE (
+    [Net Line Sales GBP],
+    DATESINPERIOD ( DimDate[date_key], MAX ( DimDate[date_key] ), -3, MONTH )
+)

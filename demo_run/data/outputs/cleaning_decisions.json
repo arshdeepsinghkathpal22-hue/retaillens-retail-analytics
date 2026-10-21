@@ -1,0 +1,47 @@
+{
+  "rules": [
+    {
+      "reason": "missing_invoice",
+      "excluded": 1
+    },
+    {
+      "reason": "missing_stock_code",
+      "excluded": 1
+    },
+    {
+      "reason": "invalid_invoice_date",
+      "excluded": 1
+    },
+    {
+      "reason": "invalid_quantity",
+      "excluded": 1
+    },
+    {
+      "reason": "zero_quantity",
+      "excluded": 1
+    },
+    {
+      "reason": "invalid_price",
+      "excluded": 2
+    },
+    {
+      "reason": "zero_price_noncommercial",
+      "excluded": 1
+    },
+    {
+      "reason": "credit_with_positive_quantity",
+      "excluded": 1
+    }
+  ],
+  "notes": [
+    "No customer ID is fabricated: anonymous revenue is kept but excluded from customer KPIs.",
+    "A negative quantity is treated as a return even without a C invoice prefix; flagged for review.",
+    "C-prefixed invoices with positive quantity are excluded as contradictory records.",
+    "Zero-price lines are kept in rejected records: they do not represent priced merchandise.",
+    "Exact lookalike source lines are flagged but retained because the source has no unique line key.",
+    "Amounts are GBP transaction-line proxies; tax, shipping, discounts and original credit matches are unavailable."
+  ],
+  "duplicate_rows_flagged_not_removed": 1,
+  "returns_without_credit_prefix": 0,
+  "reference_date": "2025-10-01"
+}

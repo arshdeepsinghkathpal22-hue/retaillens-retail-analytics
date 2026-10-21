@@ -1,0 +1,10 @@
+source_row,InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country,rejection_reason
+772,C503276,P101,Ceramic Storage Jar,2.0,2025-02-11 10:49:00,13.5,11000,United Kingdom,credit_with_positive_quantity
+1114,500001,P101,Ceramic Storage Jar,0.0,2025-02-11 10:49:00,13.5,11000,United Kingdom,zero_quantity
+1909,500001,P101,Ceramic Storage Jar,1.0,2025-02-11 10:49:00,missing,11000,United Kingdom,invalid_price
+3332,500001,,Ceramic Storage Jar,1.0,2025-02-11 10:49:00,13.5,11000,United Kingdom,missing_stock_code
+4759,500001,P101,Ceramic Storage Jar,1.0,2025-02-11 10:49:00,-9.0,11000,United Kingdom,invalid_price
+4954,500001,P101,Ceramic Storage Jar,1.0,2025-02-11 10:49:00,0,11000,United Kingdom,zero_price_noncommercial
+6988,500001,P101,Ceramic Storage Jar,1.5,2025-02-11 10:49:00,13.5,11000,United Kingdom,invalid_quantity
+7218,,P101,Ceramic Storage Jar,1.0,2025-02-11 10:49:00,13.5,11000,United Kingdom,missing_invoice
+7269,500001,P101,Ceramic Storage Jar,1.0,not a date,13.5,11000,United Kingdom,invalid_invoice_date
